@@ -1,18 +1,17 @@
 <script>
-import { state } from './state'
+import SearchBar from './components/SearchBar.vue';
 
 export default {
     name: 'App',
-    data() {
-        return {
-            state
-        }
+    components: {
+        SearchBar
     }
 }
 </script>
 
 <template>
-    <h1>{{ state.message }}</h1>
+
+    <SearchBar />
 </template>
 
 <style></style>
