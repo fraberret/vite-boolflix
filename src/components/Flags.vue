@@ -5,36 +5,32 @@
 <script>
 
 export default {
-    data() {
-        return {
-            flagUrl: "",
-        }
-    },
+
     props: {
         language: String
     },
 
-    mounted() {
-        if (this.language == 'it') {
-            this.flagUrl = "img/it.svg"
-        }
-        else if (this.language == 'en') {
-            this.flagUrl = "img/gb.svg"
-        }
-        else if (this.language == 'fr') {
-            this.flagUrl = "img/fr.svg"
-        }
-        else if (this.language == 'es') {
-            this.flagUrl = "img/es.svg"
-        }
-        else if (this.language == 'en') {
-            this.flagUrl = "img/gb.svg"
-        }
-        else if (this.language == 'en') {
-            this.flagUrl = "img/gb.svg"
-        }
-        else if (this.language == 'en') {
-            this.flagUrl = "img/gb.svg"
+    computed: {
+        flagUrl() {
+
+            const flags = {
+                it: `/img/it.svg`,
+                en: '/img/gb.svg',
+                es: '/img/es.svg',
+                fr: '/img/fr.svg',
+                es: '/img/es.svg',
+                cn: '/img/cn.svg',
+                zh: '/img/cn.svg',
+                sh: '/img/sh.svg',
+                ja: '/img/jp.svg',
+                sv: '/img/sv.svg',
+                ko: '/img/kr.svg',
+                ru: '/img/ru.svg',
+                ca: '/img/es-ct.svg',
+
+
+            };
+            return flags[this.language.toLowerCase()];
         }
     }
 
