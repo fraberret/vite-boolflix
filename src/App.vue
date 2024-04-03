@@ -17,8 +17,6 @@ export default {
                 })
 
 
-
-
         },
         searchFilms() {
             console.log(this.searchText);
@@ -30,7 +28,7 @@ export default {
 
 <template>
     <div class="search_bar">
-        <input type="text" v-model="searchText">
+        <input type="text" v-model="searchText" @keyup.enter="searchFilms">
         <button @click="searchFilms">Search</button>
     </div>
 
