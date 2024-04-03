@@ -1,12 +1,22 @@
 <script>
 export default {
-    name: 'SearchBar'
+    name: 'SearchBar',
+    data() {
+        return {
+            searchText: ''
+        }
+    },
+    methods: {
+        searchFilms() {
+            console.log(this.searchText);
+        }
+    }
 }
 </script>
 
 <template>
-    <input type="text">
-    <button>Search</button>
+    <input type="text" v-model="searchText">
+    <button @click="searchFilms">Search</button>
 
 </template>
 
