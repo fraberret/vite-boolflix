@@ -1,17 +1,27 @@
 <script>
-import SearchBar from './components/SearchBar.vue';
+
 
 export default {
     name: 'App',
-    components: {
-        SearchBar
+    data() {
+        return {
+            searchText: ''
+        }
+    },
+    methods: {
+        searchFilms() {
+            console.log(this.searchText);
+        }
     }
 }
 </script>
 
 <template>
+    <div class="search_bar">
+        <input type="text" v-model="searchText">
+        <button @click="searchFilms">Search</button>
+    </div>
 
-    <SearchBar />
 </template>
 
 <style></style>
