@@ -34,6 +34,16 @@ export default {
         <button @click="searchFilms">Search</button>
     </div>
 
+    <div class="results">
+        <ul v-for="film in films">
+            <li>{{ film.title }}</li>
+            <li>{{ film.original_title }}</li>
+            <li>{{ film.original_language }}</li>
+            <li>{{ film.vote_average }}</li>
+
+        </ul>
+    </div>
+
 </template>
 
 <style></style>
