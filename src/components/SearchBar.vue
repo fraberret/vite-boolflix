@@ -5,9 +5,9 @@ export default {
 </script>
 
 <template>
-    <div>
-        Hi
-    </div>
+    <input type="text">
+    <button>Search</button>
+
 </template>
 
 
