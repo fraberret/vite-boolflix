@@ -1,8 +1,13 @@
 <script>
 import axios from 'axios';
+import Flags from './components/Flags.vue';
+
 
 export default {
     name: 'App',
+    components: {
+        Flags
+    },
     data() {
         return {
             films: [],
@@ -15,7 +20,6 @@ export default {
                 .then(resp => {
                     this.films = resp.data.results
                 })
-
 
         },
         searchFilms() {
@@ -38,11 +42,14 @@ export default {
                 <h3>{{ film.title }}</h3>
             </li>
             <li>Titolo Originale: {{ film.original_title }}</li>
-            <li>Lingua: {{ film.original_language }}</li>
+            <li>Lingua:
+                <Flags :language="film.original_language" />
+            </li>
             <li>Voto: {{ film.vote_average }}</li>
 
         </ul>
     </div>
+
 
 </template>
 

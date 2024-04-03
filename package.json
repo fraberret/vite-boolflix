@@ -8,12 +8,11 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "dependencies": {
-    "axios": "^1.6.8",
-    "vue": "^3.4.21"
-  },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
     "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "vue-flag": "^0.1.1"
   }
 }
