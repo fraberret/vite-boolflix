@@ -26,7 +26,7 @@ export default {
                 return `https://image.tmdb.org/t/p/w342/${posterPath}`;
             } else {
 
-                return 'immagine non disponibile';
+                return '/img/immagine-non-disponibile.png';
             }
         }
     }
@@ -36,26 +36,33 @@ export default {
 
 <template>
 
-    <div class="col">
-        <div class="card">
-            <img :src="imageUrl(contents.poster_path)" alt="">
+    <div class="col-4 rounded-4">
+        <div class="card rounded-4  h-100">
+            <div class="overlay rounded-4 p-3">
+                <h3>{{ contents.title || contents.name }}</h3>
 
-            <!-- Titolo -->
-            <h3>{{ contents.title || contents.name }}</h3>
+                <!--Titolo originale-->
+                <p>Titolo Originale: {{ contents.original_title || contents.original_name }}</p>
 
-            <!--Titolo originale-->
-            <p>Titolo Originale: {{ contents.original_title || contents.original_name }}</p>
+                <!-- Lingua -->
+                <p>Lingua:
+                    <Flags :language="contents.original_language" />
+                </p>
 
-            <!-- Lingua -->
-            <p>Lingua:
-                <Flags :language="contents.original_language" />
-            </p>
+                <!-- Voto -->
+                <p>Voto: {{ convertVote(contents.vote_average) }}</p>
 
-            <!-- Voto -->
-            <p>Voto: {{ convertVote(contents.vote_average) }}</p>
+                <!-- Tipo -->
+                <p>Tipo: {{ contents.original_name ? 'Serie TV' : 'Film' }}</p>
 
-            <!-- Tipo -->
-            <p>Tipo: {{ contents.original_name ? 'Serie TV' : 'Film' }}</p>
+                <p>Trama: {{ contents.overview }}</p>
+            </div>
+            <img class="rounded-4" :src="imageUrl(contents.poster_path)" alt="">
+
+            <div class="hide">
+                <!-- Titolo -->
+
+            </div>
         </div>
     </div>
 
@@ -66,7 +73,27 @@ export default {
 
 
 
-
 </template>
 
-<style></style>
+<style>
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+
+    /* Colore nero con opacità del 50% */
+    transition: opacity 0.3s ease;
+    /* Transizione per rendere l'overlay più fluido */
+    opacity: 0;
+    color: white;
+    /* Opacità iniziale a 0 */
+}
+
+.card:hover .overlay {
+    opacity: 1;
+    /* Opacità al passaggio del mouse */
+}
+</style>
