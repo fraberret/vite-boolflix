@@ -1,6 +1,5 @@
 <script>
 import axios from 'axios'
-import Flags from './components/Flags.vue';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 
@@ -8,7 +7,6 @@ import AppMain from './components/AppMain.vue';
 export default {
     name: 'App',
     components: {
-        Flags,
         AppHeader,
         AppMain
     },

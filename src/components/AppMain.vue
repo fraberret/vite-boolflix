@@ -14,8 +14,10 @@ export default {
 </script>
 
 <template>
-    <div class="results">
-        <Card v-for="contents in contents" :contents="contents" />
+    <div class="container">
+        <div class="row">
+            <Card v-for="contents in contents" :contents="contents" />
+        </div>
     </div>
 </template>
 

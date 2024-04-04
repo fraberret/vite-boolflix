@@ -20,6 +20,15 @@ export default {
             }
             return stars.join('');
         },
+
+        imageUrl(posterPath) {
+            if (posterPath) {
+                return `https://image.tmdb.org/t/p/w342/${posterPath}`;
+            } else {
+
+                return 'immagine non disponibile';
+            }
+        }
     }
 
 }
@@ -29,7 +38,7 @@ export default {
 
     <div class="col">
         <div class="card">
-            <img :src="`https://image.tmdb.org/t/p/w342/${contents.poster_path}`" alt="">
+            <img :src="imageUrl(contents.poster_path)" alt="">
 
             <!-- Titolo -->
             <h3>{{ contents.title || contents.name }}</h3>
