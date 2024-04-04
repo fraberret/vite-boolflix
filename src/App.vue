@@ -33,6 +33,12 @@ export default {
             this.allContents = []
             console.log(this.searchText);
             this.callApi(`https://api.themoviedb.org/3/search/tv?api_key=b1003d70cc2d6eaae13e67d404d98fdd&language=it_IT&query=${this.searchText}`)
+        },
+        convertVote(vote) {
+            const convertedVote = Math.ceil(vote / 2);
+            const stars = Array(5).fill('☆');
+
+            return stars.join('');
         }
     }
 }
@@ -66,7 +72,7 @@ export default {
             </li>
 
             <!-- Voto -->
-            <li>Voto: {{ content.vote_average }}</li>
+            <li>Voto: {{ convertVote(content.vote_average) }}</li>
 
             <!-- Tipo -->
             <li>Tipo: {{ content.original_name ? 'Serie TV' : 'Film' }}</li>
