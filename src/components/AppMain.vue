@@ -15,7 +15,7 @@ export default {
 
 <template>
     <div class="results">
-        <Card :contents="contents" />
+        <Card v-for="contents in contents" :contents="contents" />
     </div>
 </template>
 

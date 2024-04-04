@@ -22,6 +22,32 @@ export default {
 
 <template>
 
+    <ul>
+
+        <!-- Titolo -->
+        <li>
+            <h3>{{ contents.title || contents.name }}</h3>
+        </li>
+
+        <li>
+            <img :src="`https://image.tmdb.org/t/p/w342/${contents.poster_path}`" alt="">
+        </li>
+
+        <!-- Titolo originale -->
+        <li>Titolo Originale: {{ contents.original_title || contents.original_name }}</li>
+
+        <!-- Lingua -->
+        <li>Lingua:
+            <Flags :language="contents.original_language" />
+        </li>
+
+        <!-- Voto -->
+        <li>Voto: {{ convertVote(contents.vote_average) }}</li>
+
+        <!-- Tipo -->
+        <li>Tipo: {{ contents.original_name ? 'Serie TV' : 'Film' }}</li>
+
+    </ul>
 
 </template>
 
