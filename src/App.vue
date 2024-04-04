@@ -45,16 +45,25 @@ export default {
 
     <div class="results">
         <ul v-for=" content  in  allContents ">
-            <li>
-                <h3>{{ content.title }}</h3>
-                <h3>{{ content.name }}</h3>
 
+            <!-- Titolo -->
+            <li>
+                <h3>{{ content.title || content.name }}</h3>
             </li>
-            <li>Titolo Originale: {{ content.original_title }}</li>
+
+            <!-- Titolo originale -->
+            <li>Titolo Originale: {{ content.original_title || content.original_name }}</li>
+
+            <!-- Lingua -->
             <li>Lingua:
                 <Flags :language="content.original_language" />
             </li>
+
+            <!-- Voto -->
             <li>Voto: {{ content.vote_average }}</li>
+
+            <!-- Tipo -->
+            <li>Tipo: {{ content.original_name ? 'Serie TV' : 'Film' }}</li>
 
         </ul>
     </div>
