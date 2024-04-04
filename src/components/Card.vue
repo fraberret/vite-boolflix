@@ -1,7 +1,12 @@
 <script>
+import Flags from './Flags.vue';
 
 export default {
     name: 'Card',
+
+    components: {
+        Flags
+    },
 
     props: {
         contents: Array
@@ -22,33 +27,37 @@ export default {
 
 <template>
 
-    <ul>
-
-        <!-- Titolo -->
-        <li>
-            <h3>{{ contents.title || contents.name }}</h3>
-        </li>
-
-        <li>
+    <div class="col">
+        <div class="card">
             <img :src="`https://image.tmdb.org/t/p/w342/${contents.poster_path}`" alt="">
-        </li>
 
-        <!-- Titolo originale -->
-        <li>Titolo Originale: {{ contents.original_title || contents.original_name }}</li>
+            <!-- Titolo -->
+            <h3>{{ contents.title || contents.name }}</h3>
 
-        <!-- Lingua -->
-        <li>Lingua:
-            <Flags :language="contents.original_language" />
-        </li>
+            <!--Titolo originale-->
+            <p>Titolo Originale: {{ contents.original_title || contents.original_name }}</p>
 
-        <!-- Voto -->
-        <li>Voto: {{ convertVote(contents.vote_average) }}</li>
+            <!-- Lingua -->
+            <p>Lingua:
+                <Flags :language="contents.original_language" />
+            </p>
 
-        <!-- Tipo -->
-        <li>Tipo: {{ contents.original_name ? 'Serie TV' : 'Film' }}</li>
+            <!-- Voto -->
+            <p>Voto: {{ convertVote(contents.vote_average) }}</p>
 
-    </ul>
+            <!-- Tipo -->
+            <p>Tipo: {{ contents.original_name ? 'Serie TV' : 'Film' }}</p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
 
 </template>
 
-<style lang="scss" scoped></style>
+<style></style>
