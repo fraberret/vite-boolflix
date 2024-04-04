@@ -11,6 +11,7 @@ export default {
     data() {
         return {
             allContents: [],
+            contentKey: [],
             searchText: ''
         }
     },
@@ -46,9 +47,14 @@ export default {
     <div class="results">
         <ul v-for=" content  in  allContents ">
 
+
             <!-- Titolo -->
             <li>
                 <h3>{{ content.title || content.name }}</h3>
+            </li>
+
+            <li>
+                <img :src="`https://image.tmdb.org/t/p/w342/${content.poster_path}`" alt="">
             </li>
 
             <!-- Titolo originale -->
