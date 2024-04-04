@@ -1,16 +1,22 @@
 <script>
 import SearchBar from './SearchBar.vue';
+import AppLogo from '../AppLogo.vue';
+
 export default {
-name:'Header',
-components:{
-    SearchBar
-}
+    name: 'Header',
+    components: {
+        SearchBar,
+        AppLogo
+    }
 }
 </script>
 
 <template>
-    <SearchBar/>
+    <div class="header">
+        <AppLogo />
+        <SearchBar />
+    </div>
 </template>
 
 
-<style lang="scss" scoped></style>
+<style></style>

@@ -1,5 +1,4 @@
 <script>
-import axios from 'axios';
 import Flags from './components/Flags.vue';
 import Header from './components/Header.vue';
 
