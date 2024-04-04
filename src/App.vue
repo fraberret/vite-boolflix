@@ -37,7 +37,9 @@ export default {
         convertVote(vote) {
             const convertedVote = Math.ceil(vote / 2);
             const stars = Array(5).fill('☆');
-
+            for (let i = 0; i < convertedVote; i++) {
+                stars[i] = '★';
+            }
             return stars.join('');
         }
     }
