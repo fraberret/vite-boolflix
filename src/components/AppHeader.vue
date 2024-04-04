@@ -3,7 +3,7 @@ import SearchBar from './SearchBar.vue';
 import AppLogo from '../AppLogo.vue';
 
 export default {
-    name: 'Header',
+    name: 'AppHeader',
     components: {
         SearchBar,
         AppLogo

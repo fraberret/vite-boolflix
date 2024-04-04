@@ -1,9 +1,11 @@
 <script>
 import axios from 'axios'
+import Card from './Card.vue'
 export default {
-    name: 'SearchBar',
-    searchText: '',
-
+    name: 'AppMain',
+    components: {
+        Card
+    },
     methods: {
         callApi(url) {
             axios.get(url)
@@ -28,11 +30,9 @@ export default {
 </script>
 
 <template>
-    <div class="search_bar">
-        <input type="text" v-model="searchText" @keyup.enter="searchFilms(); searchTvSeries()">
-        <button @click="searchFilms(); searchTvSeries()">Search</button>
+    <div class="results">
+
     </div>
 </template>
-
 
 <style lang="scss" scoped></style>

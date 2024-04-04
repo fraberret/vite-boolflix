@@ -1,18 +1,20 @@
 <script>
 import Flags from './components/Flags.vue';
-import Header from './components/Header.vue';
+import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
 
 
 export default {
     name: 'App',
     components: {
         Flags,
-        Header
+        AppHeader,
+        AppMain
     },
     data() {
         return {
             allContents: [],
-            contentKey: [],
+
             searchText: ''
         }
     },
@@ -32,37 +34,8 @@ export default {
 
 <template>
 
-    <Header />
-
-    <div class="results">
-        <ul v-for=" content  in  allContents ">
-
-
-            <!-- Titolo -->
-            <li>
-                <h3>{{ content.title || content.name }}</h3>
-            </li>
-
-            <li>
-                <img :src="`https://image.tmdb.org/t/p/w342/${content.poster_path}`" alt="">
-            </li>
-
-            <!-- Titolo originale -->
-            <li>Titolo Originale: {{ content.original_title || content.original_name }}</li>
-
-            <!-- Lingua -->
-            <li>Lingua:
-                <Flags :language="content.original_language" />
-            </li>
-
-            <!-- Voto -->
-            <li>Voto: {{ convertVote(content.vote_average) }}</li>
-
-            <!-- Tipo -->
-            <li>Tipo: {{ content.original_name ? 'Serie TV' : 'Film' }}</li>
-
-        </ul>
-    </div>
+    <AppHeader />
+    <AppMain />
 
 
 </template>
