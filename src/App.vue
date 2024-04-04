@@ -1,4 +1,5 @@
 <script>
+import axios from 'axios'
 import Flags from './components/Flags.vue';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
@@ -14,28 +15,45 @@ export default {
     data() {
         return {
             allContents: [],
-
             searchText: ''
         }
     },
     methods: {
 
-        convertVote(vote) {
-            const convertedVote = Math.ceil(vote / 2);
-            const stars = Array(5).fill('☆');
-            for (let i = 0; i < convertedVote; i++) {
-                stars[i] = '★';
-            }
-            return stars.join('');
-        }
-    }
+
+
+        performSearch(searchText) {
+            this.allContents = []
+            this.searchText = searchText;
+            this.searchFilms();
+            this.searchTvSeries();
+        },
+
+        callApi(url) {
+            axios.get(url)
+                .then(resp => {
+
+                    this.allContents = this.allContents.concat(resp.data.results)
+                })
+        },
+
+        searchFilms() {
+            console.log(this.searchText);
+            this.callApi(`https://api.themoviedb.org/3/search/movie?api_key=b1003d70cc2d6eaae13e67d404d98fdd&query=${this.searchText}`)
+        },
+        searchTvSeries() {
+            console.log(this.searchText);
+            this.callApi(`https://api.themoviedb.org/3/search/tv?api_key=b1003d70cc2d6eaae13e67d404d98fdd&language=it_IT&query=${this.searchText}`)
+        },
+    },
+
 }
 </script>
 
 <template>
 
-    <AppHeader />
-    <AppMain />
+    <AppHeader @search="performSearch" />
+    <AppMain :contents="allContents" />
 
 
 </template>
