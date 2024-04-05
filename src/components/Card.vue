@@ -1,4 +1,5 @@
 <script>
+import axios from 'axios';
 import Flags from './Flags.vue';
 
 export default {
@@ -7,8 +8,15 @@ export default {
     ],
     name: 'Card',
 
+    data() {
+        return {
+            Ids: this.contents.id,
+            cast: []
+        }
+    },
+
     components: {
-        Flags
+        Flags,
     },
 
     methods: {
@@ -19,7 +27,16 @@ export default {
                 stars[i] = '★';
             }
             return stars.join('');
+
         },
+
+        getCast() {
+            axios.get(`http://api.themoviedb.org/3/movie/${this.Ids}/casts?api_key=b1003d70cc2d6eaae13e67d404d98fdd`)
+                .then(resp => {
+                    this.cast.push(resp.data.cast)
+                })
+        },
+
 
         imageUrl(posterPath) {
             if (posterPath) {
@@ -29,7 +46,12 @@ export default {
                 return '/img/immagine-non-disponibile.png';
             }
         }
+    },
+    computed() {
+        this.getCast()
     }
+
+
 
 }
 </script>
@@ -41,6 +63,7 @@ export default {
             <div class="overlay rounded-4 p-3">
                 <h3>{{ contents.title || contents.name }}</h3>
 
+                <p>Cast: {{ cast }}</p>
                 <!--Titolo originale-->
                 <p>Titolo Originale: {{ contents.original_title || contents.original_name }}</p>
 

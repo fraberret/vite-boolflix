@@ -68,7 +68,6 @@ export default {
         /* Chiamata Ajax per far comparire da subito i film in pagina */
         this.callApi(`https://api.themoviedb.org/3/discover/movie?api_key=b1003d70cc2d6eaae13e67d404d98fdd`)
 
-
     }
 
 }
