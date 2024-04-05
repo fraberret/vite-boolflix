@@ -47,8 +47,11 @@ export default {
             }
         }
     },
-    computed() {
+    mounted() {
         this.getCast()
+        console.log(this.cast);
+        console.log(this.Ids);
+
     }
 
 
@@ -63,7 +66,9 @@ export default {
             <div class="overlay rounded-4 p-3">
                 <h3>{{ contents.title || contents.name }}</h3>
 
-                <p>Cast: {{ cast }}</p>
+                <ul>
+                    <li>Cast: {{ cast.name }}</li>
+                </ul>
                 <!--Titolo originale-->
                 <p>Titolo Originale: {{ contents.original_title || contents.original_name }}</p>
 
