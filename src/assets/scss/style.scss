@@ -1,6 +1,8 @@
 @import "bootstrap/scss/bootstrap";
 
-
+body {
+    background-color: black;
+}
 
 header {
     background-color: black;
@@ -13,6 +15,6 @@ header {
 }
 
 main {
-    background-color: black;
+
     padding-top: 6rem;
 }

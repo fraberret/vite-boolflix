@@ -3,6 +3,7 @@
         <ul>
             <li>Home</li>
             <li>Serie Tv</li>
+            <li>Film</li>
         </ul>
     </nav>
 </template>
