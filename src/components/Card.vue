@@ -35,6 +35,10 @@ export default {
                 .then(resp => {
                     this.cast.push(resp.data.cast)
                 })
+
+            this.cast.forEach(actor => {
+                console.log(actor);
+            })
         },
 
 
@@ -66,9 +70,12 @@ export default {
             <div class="overlay rounded-4 p-3">
                 <h3>{{ contents.title || contents.name }}</h3>
 
-                <ul>
-                    <li>Cast: {{ cast.name }}</li>
-                </ul>
+
+                <p v-for="casts in cast">Cast: {{ casts.reduce((acc, actor) => acc + actor.name + ', ',
+                    '')
+                    }}</p>
+
+
                 <!--Titolo originale-->
                 <p>Titolo Originale: {{ contents.original_title || contents.original_name }}</p>
 
