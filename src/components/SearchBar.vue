@@ -10,8 +10,10 @@ export default {
 
     methods: {
         search() {
+            if (this.searchText != '') {
+                this.$emit('search', this.searchText);
+            }
 
-            this.$emit('search', this.searchText);
         }
     }
 
@@ -37,13 +39,5 @@ export default {
 
 input::-webkit-input-placeholder {
     color: rgba(255, 254, 254, 0.584) !important;
-}
-
-li:hover {
-    cursor: pointer;
-    color: rgb(157, 155, 155);
-    transition: .5s;
-
-
 }
 </style>

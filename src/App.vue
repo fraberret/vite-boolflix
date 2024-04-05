@@ -32,18 +32,29 @@ export default {
                 .then(resp => {
 
                     this.allContents = this.allContents.concat(resp.data.results)
+                    console.log(this.allContents);
                 })
         },
 
         searchFilms() {
             console.log(this.searchText);
             this.callApi(`https://api.themoviedb.org/3/search/movie?api_key=b1003d70cc2d6eaae13e67d404d98fdd&query=${this.searchText}`)
+
         },
         searchTvSeries() {
             console.log(this.searchText);
             this.callApi(`https://api.themoviedb.org/3/search/tv?api_key=b1003d70cc2d6eaae13e67d404d98fdd&language=it_IT&query=${this.searchText}`)
         },
+
+
     },
+    mounted() {
+
+        console.log(this.searchText);
+        this.callApi(`https://api.themoviedb.org/3/discover/movie?api_key=b1003d70cc2d6eaae13e67d404d98fdd`)
+
+
+    }
 
 }
 </script>

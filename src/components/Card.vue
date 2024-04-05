@@ -83,17 +83,16 @@ export default {
     width: 100%;
     height: 100%;
     background-color: rgb(0, 0, 0);
-
-    /* Colore nero con opacità del 50% */
     transition: opacity 0.3s ease;
-    /* Transizione per rendere l'overlay più fluido */
     opacity: 0;
+
     color: white;
-    /* Opacità iniziale a 0 */
+
 }
 
 .card:hover .overlay {
     opacity: 1;
+
     /* Opacità al passaggio del mouse */
 }
 </style>
