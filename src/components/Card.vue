@@ -2,15 +2,15 @@
 import Flags from './Flags.vue';
 
 export default {
+    props: [
+        "contents"
+    ],
     name: 'Card',
 
     components: {
         Flags
     },
 
-    props: {
-        contents: Array
-    },
     methods: {
         convertVote(vote) {
             const convertedVote = Math.ceil(vote / 2);

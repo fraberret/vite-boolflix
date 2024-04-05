@@ -16,6 +16,7 @@ export default {
             const flags = {
                 it: `/img/it.svg`,
                 en: '/img/gb.svg',
+                uk: '/img/ua.svg',
                 es: '/img/es.svg',
                 fr: '/img/fr.svg',
                 es: '/img/es.svg',
@@ -27,6 +28,9 @@ export default {
                 ko: '/img/kr.svg',
                 ru: '/img/ru.svg',
                 ca: '/img/es-ct.svg',
+                pt: '/img/pt.svg',
+                th: '/img/th.svg',
+                de: '/img/de.svg'
 
 
             };
