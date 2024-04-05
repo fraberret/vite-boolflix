@@ -14,7 +14,7 @@ export default {
         return {
             allContents: [],
             searchText: '',
-            Id: []
+            Ids: []
         }
     },
     methods: {
@@ -22,10 +22,12 @@ export default {
 
 
         performSearch(searchText) {
-            this.allContents = []
-            this.searchText = searchText;
+
+            this.allContents = [],
+                this.searchText = searchText;
             this.searchFilms();
             this.searchTvSeries();
+
         },
 
         callApi(url) {
@@ -34,10 +36,13 @@ export default {
 
                     this.allContents = this.allContents.concat(resp.data.results)
                     console.log(this.allContents);
+
+                    this.Ids = [];
+
                     this.allContents.forEach(content => {
-                        this.Id.push(content.id);
+                        this.Ids.push(content.id);
                     })
-                    console.log(this.Id);
+                    console.log(this.Ids);
                 })
 
         },
@@ -51,6 +56,12 @@ export default {
             console.log(this.searchText);
             this.callApi(`https://api.themoviedb.org/3/search/tv?api_key=b1003d70cc2d6eaae13e67d404d98fdd&language=it_IT&query=${this.searchText}`)
         },
+
+        cast() {
+            this.Ids.forEach(id => {
+
+            })
+        }
 
 
     },
