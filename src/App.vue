@@ -14,6 +14,7 @@ export default {
         return {
             allContents: [],
             searchText: '',
+            Id: []
         }
     },
     methods: {
@@ -33,7 +34,12 @@ export default {
 
                     this.allContents = this.allContents.concat(resp.data.results)
                     console.log(this.allContents);
+                    this.allContents.forEach(content => {
+                        this.Id.push(content.id);
+                    })
+                    console.log(this.Id);
                 })
+
         },
 
         searchFilms() {
