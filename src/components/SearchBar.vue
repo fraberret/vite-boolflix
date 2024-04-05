@@ -26,4 +26,9 @@ export default {
 </template>
 
 
-<style lang="scss" scoped></style>
+<style>
+.search_bar {
+    position: absolute;
+    right: 0;
+}
+</style>

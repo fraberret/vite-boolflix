@@ -6,6 +6,7 @@
 
 export default {
 
+    name: 'Flags',
     props: {
         language: String
     },
@@ -40,3 +41,8 @@ export default {
 
 };
 </script>
+<style>
+img {
+    border-radius: 50%;
+}
+</style>

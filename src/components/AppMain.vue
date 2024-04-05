@@ -14,11 +14,13 @@ export default {
 </script>
 
 <template>
-    <div class="container pt-4">
-        <div class="row g-3">
-            <Card v-for="contents in contents" :contents="contents" />
+    <main>
+        <div class="container pt-4">
+            <div class="row g-3">
+                <Card v-for="contents in contents" :contents="contents" />
+            </div>
         </div>
-    </div>
+    </main>
 </template>
 
 <style lang="scss" scoped></style>

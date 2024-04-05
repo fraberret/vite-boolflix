@@ -1,12 +1,14 @@
 <script>
 import SearchBar from './SearchBar.vue';
 import AppLogo from './AppLogo.vue';
+import NavHeader from './NavHeader.vue';
 
 export default {
     name: 'AppHeader',
     components: {
         SearchBar,
-        AppLogo
+        AppLogo,
+        NavHeader
     },
     methods: {
         performSearch(searchText) {
@@ -18,11 +20,22 @@ export default {
 </script>
 
 <template>
-    <div class="header">
-        <AppLogo />
-        <SearchBar @search="performSearch" />
-    </div>
+    <header>
+        <div class="l">
+            <AppLogo />
+            <NavHeader />
+            <SearchBar @search="performSearch" />
+
+        </div>
+    </header>
 </template>
 
 
-<style></style>
+<style>
+.l {
+    width: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+</style>
